@@ -134,10 +134,10 @@ class LabelScope:
         if label_scope.value < self.type.value:
             self.parent.set_label_value(label, value, line_id)
         elif label_scope == self.type:
-            if label not in self._labels:
-                self._labels[label] = LabelScope.LabelInfo(label, value, line_id)
-            else:
-                sys.exit(f"ERROR: {line_id} - Label '{label}' is defined multiple times at scope {self}")
+            #if label not in self._labels:
+            self._labels[label] = LabelScope.LabelInfo(label, value, line_id)
+            #else:
+            #    sys.exit(f"ERROR: {line_id} - Label '{label}' is defined multiple times at scope {self}")
         else:
             # we are only here if the label is too low level for this scope
             # example: local label defined before any global labels
